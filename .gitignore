@@ -1,0 +1,8 @@
+*.png
+*.psd
+*.ico
+bin
+obj
+.cscode
+appsettings.json
+publish
