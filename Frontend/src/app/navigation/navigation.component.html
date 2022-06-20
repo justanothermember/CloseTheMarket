@@ -1,0 +1,41 @@
+
+<!-- etf banner start -->
+<div class="WSJTheme--md-sector--1XAXNaKm WSJTheme--sector-unit-8--1Nr3MWvr WSJTheme--is-not-fixed--1H7tpfoV ">
+  <div class="WSJTheme--ticker--3dGjBudx WSJTheme--ticker-down--3Wq6nVrj " *ngFor="let etf of etfs">
+    <a class="WSJTheme--ticker-link--2uFDXkCa " href="https://www.wsj.com/market-data/quotes/index/US/DJIA?mod=mdstrip">
+      <span aria-label="Dow Jones Industrial Average currently" class="WSJTheme--display-name--2I9ZtSS5 ">{{etf.symbol}}</span>
+      <span class="WSJTheme--display-price--3wFhn-E0 ">{{etf.lastPrice.toFixed(2)}}</span>
+      <span class="WSJTheme--visually-hidden--1yK0FKha ">points with a</span>
+      <span class="WSJTheme--display-per-change--2dUIWNX1 ">{{etf.netPercentChangeInDouble.toFixed(2)}}%</span>
+      <span aria-label="decrease" class="WSJTheme--arrow-down--2M7HnUx1 WSJTheme--arrow--op2MJRq2 ">▼</span>
+    </a>
+  </div>
+</div>
+<!-- etf banner end -->
+
+<!-- navigation bar start-->
+<nav class="navbar navbar-expand-sm navbar-light">
+    <img src="../assets/images/nav_logo.png" class="rounded-circle" routerLink="/home">
+    <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0" id="navbar">
+        <ul class="navbar-nav text-center">
+            <li class="nav-item active">
+                <a class="nav-link" aria-current="page" routerLink="/"><i class="fa-solid fa-chart-column"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"><i class="fa-solid fa-bell"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input"
+        type="checkbox" role="switch" id="flexSwitchCheckDefault"
+        [checked]="darkMode$ | async"
+        (change)="onToggle()"
+      />
+      <label class="form-check-label" for="flexSwitchCheckDefault">Theme</label>
+    </div>
+</nav>
+<!-- navigation bar end-->
