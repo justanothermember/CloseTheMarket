@@ -1,13 +1,14 @@
 
 <!-- etf banner start -->
-<div class="WSJTheme--md-sector--1XAXNaKm WSJTheme--sector-unit-8--1Nr3MWvr WSJTheme--is-not-fixed--1H7tpfoV ">
-  <div class="WSJTheme--ticker--3dGjBudx WSJTheme--ticker-down--3Wq6nVrj " *ngFor="let etf of etfs">
-    <a class="WSJTheme--ticker-link--2uFDXkCa " href="https://www.wsj.com/market-data/quotes/index/US/DJIA?mod=mdstrip">
-      <span aria-label="Dow Jones Industrial Average currently" class="WSJTheme--display-name--2I9ZtSS5 ">{{etf.symbol}}</span>
-      <span class="WSJTheme--display-price--3wFhn-E0 ">{{etf.lastPrice.toFixed(2)}}</span>
-      <span class="WSJTheme--visually-hidden--1yK0FKha ">points with a</span>
-      <span class="WSJTheme--display-per-change--2dUIWNX1 ">{{etf.netPercentChangeInDouble.toFixed(2)}}%</span>
-      <span aria-label="decrease" class="WSJTheme--arrow-down--2M7HnUx1 WSJTheme--arrow--op2MJRq2 ">▼</span>
+<div class="sector">
+  <div class="ticker" *ngFor="let etf of etfs">
+    <a class="ticker-link">
+      <span>{{etf.symbol}}</span>
+      <span class="display-price">{{etf.lastPrice.toFixed(2)}}</span>
+      <span class="ticker-down" *ngIf="etf.netPercentChangeInDouble < 0.0">{{etf.netPercentChangeInDouble.toFixed(2)}}%</span>
+      <span class="ticker-up space" *ngIf="etf.netPercentChangeInDouble > 0.0">{{etf.netPercentChangeInDouble.toFixed(2)}}%</span>
+      <span class="ticker-down space" *ngIf="etf.netPercentChangeInDouble < 0.0">▼</span>
+      <span class="ticker-up space" *ngIf="etf.netPercentChangeInDouble > 0.0">▲</span>
     </a>
   </div>
 </div>

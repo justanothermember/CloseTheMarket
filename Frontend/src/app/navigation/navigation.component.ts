@@ -40,18 +40,10 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.quotes.getQuote("DIA").subscribe((res) => {
-      this.dia = res['DIA'];
-      this.update();
-    },
-    (err) => console.log(err));
-    this.quotes.getQuote("SPY").subscribe((res) => {
-      this.spy = res['SPY'];
-      this.update();
-    },
-    (err) => console.log(err));
-    this.quotes.getQuote("QQQ").subscribe((res) => {
-      this.qqq = res['QQQ'];
+    this.quotes.getQuotes().subscribe((res) =>  {
+      this.dia = res.DIA;
+      this.spy = res.SPY;
+      this.qqq = res.QQQ;
       this.update();
     },
     (err) => console.log(err));
