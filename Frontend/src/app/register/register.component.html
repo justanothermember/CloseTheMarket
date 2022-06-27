@@ -1,0 +1,203 @@
+<!-- Signup form-->
+<section class="ml-1">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                  <form name="registration" class="mx-1 mx-md-4"
+                        (ngSubmit)="onSubmit()"
+                        [formGroup]="signup"
+                        >
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa-regular fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text"
+                        class="form-control"
+                        name="fullname"
+                        formControlName="fullname"
+                        [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"/>
+                        <label class="form-label" for="fullname">First name</label>
+                        <div class="alert-danger" *ngIf="submitted && f['fullname'].errors">
+                          <div *ngIf="f['fullname'].errors['required']">Name is required</div>
+                          <div *ngIf="f['fullname'].errors['minlength']">
+                            Name must be at least 2 characters
+                          </div>
+                          <div *ngIf="f['fullname'].errors['maxlength']">
+                            Name must be at most 50 characters
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa-solid fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text"
+                      class="form-control"
+                      name="fullname"
+                      formControlName="fullname"
+                      [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"/>
+                      <label class="form-label" for="fullname">Last name</label>
+                      <div class="alert-danger" *ngIf="submitted && f['fullname'].errors">
+                        <div *ngIf="f['fullname'].errors['required']">Name is required</div>
+                        <div *ngIf="f['fullname'].errors['minlength']">
+                          Name must be at least 2 characters
+                        </div>
+                        <div *ngIf="f['fullname'].errors['maxlength']">
+                          Name must be at most 50 characters
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa-solid fa-arrow-up-9-1 fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="number" 
+                      class="form-control signup"
+                      name="age"
+                      formControlName="age"
+                      [ngClass]="{ 'is-invalid': submitted && f['age'].errors }"
+                      />
+                      <label class="form-label" for="age">Age</label>
+                      <div class="alert-danger" *ngIf="submitted && f['age'].errors">
+                        <div *ngIf="f['age'].errors['required']">Age is required</div>
+                      </div>
+                    </div>
+                  </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa-solid fa-circle-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text"
+                        class="form-control"
+                        name="username"
+                        formControlName="username"
+                        [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"/>
+                        <label class="form-label" for="username">Username</label>
+                        <div class="alert-danger" *ngIf="submitted && f['username'].errors">
+                          <div *ngIf="f['username'].errors['required']">Username is required</div>
+                          <div *ngIf="f['username'].errors['minlength']">
+                            Username must be at least 3 characters
+                          </div>
+                          <div *ngIf="f['username'].errors['maxlength']">
+                            Username must be at most 20 characters
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa-solid fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <div class = "d-flex align-items-center">
+                          <input [type]="passTextType ? 'text' : 'password'"
+                        class="form-control"
+                        name="password"
+                        formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+                        />
+                        <i class="fa space"
+                              [ngClass]="{
+                                'fa-eye-slash': !passTextType,
+                                'fa-eye': passTextType
+                              }"
+                              (click)="togglePassTextType()"></i>
+                        </div>
+                        <label class="form-label" for="password">Password</label>
+                        <div class="alert-danger" *ngIf="submitted && f['password'].errors">
+                          <div *ngIf="f['password'].errors['required']">Password is required</div>
+                          <div *ngIf="f['password'].errors['minlength']">
+                            Password must be at least 8 characters
+                          </div>
+                          <div *ngIf="f['password'].errors['maxlength']">
+                            Password must not exceed 40 characters
+                          </div>
+                          <div *ngIf="f['password'].errors['pattern']">
+                            Password must have 1 capital letter and number.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa-solid fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <div class = "d-flex align-items-center">
+                          <input [type]="repeatTextType ? 'text' : 'password'"
+                          class="form-control"
+                          name="repassword"
+                          formControlName="confirmPassword"
+                          [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+                          />
+                          <i class="fa space"
+                                [ngClass]="{
+                                  'fa-eye-slash': !repeatTextType,
+                                  'fa-eye': repeatTextType
+                                }"
+                                (click)="toggleRepeatTextType()"></i>
+                        </div>
+                        <label class="form-label" for="repassword">Repeat your password</label>
+                        <div class="alert-danger" *ngIf="submitted && f['confirmPassword'].errors">
+                          <div *ngIf="f['confirmPassword'].errors['required']">Repeat your password is required</div>
+                          <div *ngIf="f['confirmPassword'].errors['matching']">
+                            The two passwords do not match
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Security question #1
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" >What city were you born in?</a></li>
+                          <li><a class="dropdown-item" >What is your oldest sibling’s middle name?</a></li>
+                          <li><a class="dropdown-item" >What was the first concert you attended?</a></li>
+                          <li><a class="dropdown-item" >What was the make and model of your first car?</a></li>
+                          <li><a class="dropdown-item" >In what city or town did your parents meet?</a></li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Security question #2
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" >What was the last name of your third grade teacher?</a></li>
+                          <li><a class="dropdown-item" >What was the name of your first stuffed animal?</a></li>
+                          <li><a class="dropdown-item" >What is your oldest cousin's first and last name?</a></li>
+                          <li><a class="dropdown-item" >What school did you attend for sixth grade?</a></li>
+                          <li><a class="dropdown-item" >What was the name of your elementary school?</a></li>
+                        </ul>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button class="btn btn-primary btn-lg gold">Register</button>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="isSignUpFailed">
+                      Signup failed !{{ errorMessage }}
+                    </div>
+                    
+                  </form>
+                </div>
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                  <img src="../assets/images/signup.png" class="img-fluid" alt="Signup image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

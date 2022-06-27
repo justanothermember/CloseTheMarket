@@ -1,0 +1,67 @@
+<!-- settings template -->
+<section class="ml-1" id="preferences">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                <h2 class="h3 mb-4 page-title"><i class="fa-solid fa-gear"></i> Settings</h2>
+                <div class="card" style="border-radius: 25px; overflow-x: auto;">
+                    <div class="card-body p-md-5">
+                    <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link " [class.active]="view == 'preferences'" (click)="changeTab('preferences')" data-toggle="tab" role="tab">Preferences</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [class.active]="view == 'connections'" (click)="changeTab('connections')" data-toggle="tab" role="tab">Connections</a>
+                        </li>
+                    </ul>
+                    <div *ngIf="view == 'preferences'; then preferences else connections">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- preferences section -->
+<ng-template #preferences>
+    <h5 class="mb-0 mt-5">Display</h5>
+                        <p>Change the appearance of the web application.</p>
+                        <div class="d-flex">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (click)="toggleLight()" [checked]="this.mode.darkMode == false">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                Light Mode
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="toggleDark()" [checked]="this.mode.darkMode == true">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                Dark Mode
+                                </label>
+                            </div>
+                        </div>
+                        <h5 class="mb-0 mt-5">Notifications</h5>
+                        <p>Change the types of notifications you wish to receive.</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                            <label class="form-check-label">Newsletter</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                            <label class="form-check-label">Send me follower notifications via email</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                            <label class="form-check-label">Send me direct message notifications via email</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                            <label class="form-check-label">Send me liked message notifications via email</label>
+                        </div>
+</ng-template>
+
+<!-- connections section -->
+<ng-template #connections>
+    Please login.
+</ng-template>

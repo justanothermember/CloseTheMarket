@@ -14,12 +14,30 @@ body:not(.dark-mode-preloading) {
 
 body.dark-mode {
     background-color: #171717;
-    color: #f1f2f6;
+    color: rgb(200, 200, 200);
 }
   
 body.light-mode {
     background-color: #f1f2f6;
     color: #2f3542;
+}
+
+section {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 5%;
+    margin-bottom: 5%
+}
+
+.card {
+    border-color: rgb(151,151,151) !important;
+}
+
+.dark-mode .card {
+    background-color: rgba(0,0,0,0) !important;
+    color: rgb(200, 200, 200) !important;
+    border-color: rgb(200, 200, 200) !important;
 }
 
 /* Navigation bar section */
@@ -54,4 +72,24 @@ body.light-mode {
 .dark-mode .navbar-toggler {
     color: rgb(200, 200, 200) !important;
     border-color: rgb(200, 200, 200) !important;
+}
+
+.light-mode .nav-link {
+    color: #2f3542;
+    border: none;
+}
+.dark-mode .nav-link {
+    color: #f8f8f8;
+    border: none;
+}
+
+.fa-eye-slash:hover,
+.fa-eye:hover {
+  cursor: pointer;
+}
+
+.dark-mode .form-control {
+    background-color: rgba(0,0,0,0) !important;
+    color: rgb(200, 200, 200);
+    border: 1px solid #ced4da;
 }

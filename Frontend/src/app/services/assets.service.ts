@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class QuotesService {
+export class AssetsService {
 
   constructor(private http:HttpClient) { }
 
@@ -18,4 +18,10 @@ export class QuotesService {
   {
     return this.http.get<any>(`https://api.tdameritrade.com/v1/marketdata/quotes?apikey=FI1DGLKK127OKDAUB8VHWZEOIFM8VE5M&symbol=DIA%2CSPY%2CQQQ`);
   }
+
+  getSearchResults(symbol: string): Observable<any>
+  {
+    return this.http.get<any>(`https://api.tdameritrade.com/v1/instruments?apikey=FI1DGLKK127OKDAUB8VHWZEOIFM8VE5M&symbol=${symbol}.*&projection=symbol-regex`);
+  }
+
 }

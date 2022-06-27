@@ -15,18 +15,47 @@
 <!-- etf banner end -->
 
 <!-- navigation bar start-->
-<nav class="navbar navbar-expand-sm navbar-light">
-    <img src="../assets/images/nav_logo.png" class="rounded-circle" routerLink="/home">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <img src="../assets/images/nav_logo.png" class="rounded-circle" routerLink="/">
     <button class="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
       <span><i class="fas fa-bars"></i></span>
     </button>
     <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0" id="navbar">
         <ul class="navbar-nav text-center">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" aria-current="page" routerLink="/"><i class="fa-solid fa-chart-column"></i></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"><i class="fa-solid fa-bell"></i></a>
+              <a class="nav-link" aria-current="page" routerLink="/messages"><i class="fa-solid fa-message"></i></a>
+            </li>
+            <li class="nav-item" *ngIf="this.service.isLoggedIn">
+              <a class="nav-link" aria-current="page" routerLink="/account"><i class="fa-solid fa-user"></i></a>
+            </li>
+            <li class="nav-item" *ngIf="!this.service.isLoggedIn">
+              <a href="/register" class="nav-link" routerLink="register"><i class="fas fa-user-plus"></i></a>
+            </li>
+            <li class="nav-item" *ngIf="!this.service.isLoggedIn">
+              <a href="/login" class="nav-link" routerLink="login"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLink="/notifications"><i class="fa-solid fa-bell"></i></a>
+            </li>
+            <li class ="nav-item">
+              <a class="nav-link" aria-current="page" routerLink="/settings"><i class="fa-solid fa-gear"></i></a>
+            </li>
+            <li class="nav-item">
+              <input type="text"
+              class="form-control"
+              placeholder="Symbol"
+              (keyup)="searchSymbol()"
+              [(ngModel)]="searchText"
+              />
+              <div class="form-group">
+                <label for="sel1">Select:</label>
+                <select class="form-control" id="sel1" *ngFor="let stock of filteredStocks">
+                  <option>{{stock.symbol}}</option>
+                </select>
+              </div>
             </li>
         </ul>
     </div>

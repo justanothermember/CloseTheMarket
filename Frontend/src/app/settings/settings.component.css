@@ -1,0 +1,33 @@
+.ml-1 {
+    margin-top:20px;
+}
+
+.nav-link:hover {
+    color: rgb(28, 209, 206);
+    cursor: pointer;
+}
+
+.nav-link.active {
+    background: none !important;
+    border: none;
+    font-weight: 700;
+    color: rgb(28, 209, 206);
+    border-bottom: 2px solid rgb(28, 209, 206);
+}
+
+.nav-tabs {
+    border: none;
+}
+
+ p {
+    font-size: 13px;
+ }
+
+ .form-check-inline {
+    margin-left: 5%;
+ }
+
+
+ .form-check-label:hover {
+    cursor: pointer;
+ }

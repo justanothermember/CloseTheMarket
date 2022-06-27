@@ -6,3 +6,4 @@ obj
 .cscode
 appsettings.json
 publish
+Backend/DataLayer/sql/*.sql
